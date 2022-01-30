@@ -1,11 +1,12 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, {useState} from 'react';
+import { StyleSheet, Text, View, Button } from 'react-native';
 
 export default function App() {
+	const [outputText, setOutputText] = useState('Hi, Veronika!!'); // 	'Hi, Veronika!!' -- is a default value
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+			<Text>{outputText}</Text>
+      <Button title='Change Text' onPress={() => setOutputText('Congratulations!')} /> 
     </View>
   );
 }
@@ -13,7 +14,7 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: 'aqua',
     alignItems: 'center',
     justifyContent: 'center',
   },
