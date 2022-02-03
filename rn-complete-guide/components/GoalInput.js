@@ -1,12 +1,10 @@
 import React, {useState} from "react";
 import {
   StyleSheet,
-  Text,
   View,
   TextInput,
   Button,
-  ScrollView,
-  FlatList,
+  Modal
 } from "react-native";
 
 const GoalInput = (props) => {
@@ -17,15 +15,17 @@ const GoalInput = (props) => {
   };
 
   return (
-  <View style={styles.inputContainer}>
-    <TextInput
-      placeholder="Course Goal"
-      onChangeText={goalInputHandler}
-      value={enteredGoal}
-      style={styles.input}
-    />
-    <Button title="ADD" onPress={props.onAddGoal.bind(this, enteredGoal)} />
-  </View>
+  <Modal visible={props.visible} animationType='slide'>
+    <View style={styles.inputContainer}>
+      <TextInput
+        placeholder="Course Goal"
+        onChangeText={goalInputHandler}
+        value={enteredGoal}
+        style={styles.input}
+      />
+      <Button title="ADD" onPress={props.onAddGoal.bind(this, enteredGoal)} />
+    </View>
+  </Modal>
   );
 };
 
