@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View, Button, FlatList } from "react-native";
+import { StyleSheet, View, Button, FlatList, TouchableNativeFeedback, Text, ColorPropType } from "react-native";
 
 import GoalItem from "./components/GoalItem";
 import GoalInput from "./components/GoalInput";
@@ -29,6 +29,11 @@ export default function App() {
   return (
     <View style={styles.root}>
       <Button title="Add New Goal" onPress={() => setIsAddMode(true)} />
+			<TouchableNativeFeedback>
+				<View style={{marginVertical: 20, height: 50, backgroundColor: '#fffd82'}}>
+					<Text>Try ripple effect :)</Text>
+			 </View>
+			</TouchableNativeFeedback>
       <GoalInput
         visible={isAddMode}
         onAddGoal={addGoalHandler}
