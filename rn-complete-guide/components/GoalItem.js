@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, TouchableOpacity, TouchableHighlight, Touchable
 
 const GoalItem = (props) => {
   return (
-		<TouchableNativeFeedback onPress={props.onDelete}>
+		<TouchableNativeFeedback onPress={props.onDelete.bind(this, props.id)}>
 			<View style={styles.listItem}>
 				<Text>{props.title}</Text>
 			</View>
