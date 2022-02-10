@@ -23,14 +23,12 @@ const GameScreen = props => {
 
   const nextGuessHandler = direction => {
     if ((direction === "lower" && currentGuess < props.userChoice) || (direction === "greater" && currentGuess > props.userChoice)) {
-      Alert.alert("Don\'t lie!", "You know that is wrong...", [{text="Sorry", style="cancel", }])
+      Alert.alert("Don\'t lie!", "You know that is wrong...", [{text: "Sorry", style: "cancel"}]);
       return;
     }
-    if (direction === "lower") {
-      currentHigh.current = currentGuess; 
-    } else {
-      currentLow.current = currentGuess;
-    }
+    
+    direction === "lower" ? currentHigh.current = currentGuess : currentLow.current = currentGuess;
+
     const nextNumber = generateRandomBetween(currentLow.current, currentHigh.current, currentGuess);
     setCurrentGuess(nextNumber);
   };
