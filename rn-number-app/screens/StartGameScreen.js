@@ -7,7 +7,8 @@ import {
   Button,
   TouchableWithoutFeedback,
   Keyboard,
-	Alert
+	Alert,
+	Switch
 } from "react-native";
 
 import Card from "../components/Card";
