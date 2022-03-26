@@ -1,7 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Button, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Ionicons, Feather, AntDesign } from "@expo/vector-icons"
 
 import CategoriesScreen from './screens/CategoriesScreen';
 import MealsOverviewScreen from './screens/MealsOverviewScreen';
@@ -18,8 +19,8 @@ export default function App() {
         <Stack.Navigator 
           screenOptions={{  // default styles
             headerStyle: {backgroundColor: '#351401'},
-              headerTintColor: 'white', // для текста
-              contentStyle: {backgroundColor: '#3f2f25'}, // для фона
+            headerTintColor: 'white', // для текста
+            contentStyle: {backgroundColor: '#3f2f25'}, // для фона
           }}
         >
           <Stack.Screen 
@@ -45,6 +46,24 @@ export default function App() {
             component={MealDetailScreen} 
             options={{
               title: 'Meal Detail',
+              headerTitleStyle: {fontSize: 24},
+              // headerTitleAlign: 'center',
+              headerRight: () => (
+                <View style={styles.iconsContainer}>
+                  <Feather 
+                    name="home" 
+                    size={24} 
+                    color="white" 
+                    onPress={() => alert('This is a home-button!')}
+                  />
+                  <Feather 
+                    name="settings" 
+                    size={24} 
+                    color="white" 
+                    onPress={() => alert('This is a settings-button!')}
+                  />
+                </View>
+              ),
             }} 
           />
         </Stack.Navigator>
@@ -54,7 +73,10 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-
+  iconsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: 70,
+    justifyContent: 'space-between'
   },
 });
