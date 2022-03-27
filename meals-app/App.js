@@ -46,7 +46,7 @@ export default function App() {
             component={MealDetailScreen} 
             options={{
               title: 'Meal Detail',
-              headerTitleStyle: {fontSize: 24},
+              // headerTitleStyle: {fontSize: 24},
               // headerTitleAlign: 'center',
               headerRight: () => (
                 <View style={styles.iconsContainer}>
