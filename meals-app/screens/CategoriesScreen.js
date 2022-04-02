@@ -29,6 +29,7 @@ function CategoriesScreen({navigation}) {
       renderItem={renderCategoryItem.bind()}
       numColumns={2}
     />
+
   );
 }
 
