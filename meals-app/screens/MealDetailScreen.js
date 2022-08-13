@@ -1,4 +1,6 @@
-import { Text, View, Image, StyleSheet } from "react-native";
+import { Text, View, Image, StyleSheet, ScrollView } from "react-native";
+import List from "../components/MealDetail/List";
+import Subtitle from "../components/MealDetail/Subtitle";
 
 import MealDetails from "../components/MealDetails";
 import { MEALS } from "../data/dummy-data";
@@ -9,7 +11,7 @@ function MealDetailScreen({ route }) {
   const selectedMeal = MEALS.find((meal) => meal.id === mealId);
 
   return (
-    <View>
+    <ScrollView style={styles.rootContainer}>
       <Image style={styles.image} source={{ uri: selectedMeal.imageUrl }} />
       <Text style={styles.title}>{selectedMeal.title}</Text>
       <MealDetails
@@ -18,25 +20,24 @@ function MealDetailScreen({ route }) {
         complexity={selectedMeal.complexity}
         textStyle={styles.detailText}
       />
-      <View style={styles.subTitleContainer}>
-        <Text style={styles.subTitle}>Ingridients</Text>
+      <View style={styles.listOuterContainer}>
+        <View style={styles.listContainer}>
+          <Subtitle>Ingredients</Subtitle>
+          <List data={selectedMeal.ingredients} />
+          <Subtitle>Stepss</Subtitle>
+          <List data={selectedMeal.steps} />
+        </View>
       </View>
-      {selectedMeal.ingredients.map((ingredient) => (
-        <Text key={ingredient}>{ingredient}</Text>
-      ))}
-      <View style={styles.subTitleContainer}>
-        <Text style={styles.subTitle}>Steps</Text>
-      </View>
-      {selectedMeal.steps.map((step) => (
-        <Text key={step}>{step}</Text>
-      ))}
-    </View>
+    </ScrollView>
   );
 }
 
 export default MealDetailScreen;
 
 const styles = StyleSheet.create({
+  rootContainer: {
+    marginBottom: 32,
+  },
   image: {
     width: "100%",
     height: 350,
@@ -51,18 +52,10 @@ const styles = StyleSheet.create({
   detailText: {
     color: "white",
   },
-  subTitle: {
-    color: "#e2b497",
-    fontSize: 18,
-    fontWeight: "bold",
-    textAlign: "center",
+  listOuterContainer: {
+    alignItems: "center",
   },
-  subTitleContainer: {
-    margin: 6,
-    padding: 6,
-    marginHorizontal: 24,
-    marginVertical: 4,
-    borderBottomColor: "#e2b497",
-    borderBottomWidth: 2,
+  listContainer: {
+    width: "80%",
   },
 });

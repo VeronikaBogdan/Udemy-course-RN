@@ -4,19 +4,17 @@
     "slug": "meals-app",
     "version": "1.0.0",
     "orientation": "default",
-    "icon": "./assets/art-3.png",
+    "icon": "./assets/meal.png",
     "backgroundColor": "#24180f",
     "splash": {
-      "image": "./assets/prev-picture.png",
+      "image": "./assets/picnic.png",
       "resizeMode": "contain",
-      "backgroundColor": "#BBF4E9"
+      "backgroundColor": "#BBF4aa"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
