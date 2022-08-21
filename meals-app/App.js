@@ -51,22 +51,25 @@ export default function App() {
                 title: "Meal Detail",
                 // headerTitleStyle: {fontSize: 24},
                 // headerTitleAlign: 'center',
-                headerRight: () => (
-                  <View style={styles.iconsContainer}>
-                    <Feather
-                      name="home"
-                      size={24}
-                      color="white"
-                      onPress={() => alert("This is a home-button!")}
-                    />
-                    <Feather
-                      name="settings"
-                      size={24}
-                      color="white"
-                      onPress={() => alert("This is a settings-button!")}
-                    />
-                  </View>
-                ),
+                // headerRight: () => {
+                // return <Button title="Tap me!" onPress/>;
+                // },
+                // (
+                //   <View style={styles.iconsContainer}>
+                //     <Feather
+                //       name="home"
+                //       size={24}
+                //       color="white"
+                //       onPress={() => alert("This is a home-button!")}
+                //     />
+                //     <Feather
+                //       name="settings"
+                //       size={24}
+                //       color="white"
+                //       onPress={() => alert("This is a settings-button!")}
+                //     />
+                //   </View>
+                // ),
               }}
             />
           </Stack.Navigator>
